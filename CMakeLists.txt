@@ -16,6 +16,12 @@ if (CMAKE_BUILD_TYPE EQUAL "Debug")
 	set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 endif (CMAKE_BUILD_TYPE EQUAL "Debug")
 
+#-Weverything
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+	message(STATUS "Clang++ Detected!, adding compile flags!")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic-errors -ggdb -std=c++20")
+endif()
+
 #Set default compile flags for G++.
 if(CMAKE_COMPILER_IS_GNUCXX)
 	message(STATUS "G++ Detected!, adding compile flags!")
@@ -29,3 +35,4 @@ set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
 
 add_subdirectory(src)
+add_subdirectory(libs)
