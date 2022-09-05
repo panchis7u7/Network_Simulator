@@ -1,22 +1,24 @@
 #include <Device.hpp>
 
 Device::Device(std::string hostname): m_sHostname(hostname) {
-    for(int i = 0; i < 4; ++i)
-        m_vInterfaces.push_back(new Interface(i));
+    m_vSlots.reserve(2);
+    for(int i = 0; i < 2; ++i)
+        m_vSlots.push_back(new Slot(i));
 }
 
-Device::Device(std::string hostname, std::vector<Utils::IFace::Types> interfaces): m_sHostname(hostname) {
-    m_vInterfaces.reserve(interfaces.size());
+Device::Device(std::string hostname, std::vector<Utils::IFace::Types> slots_type): m_sHostname(hostname) {
+    m_vSlots.reserve(slots_type.size());
+
     int index = 0;
-    for(auto& interface : interfaces) {
-        m_vInterfaces.push_back(new Interface(index, interface));
+    for(auto& slot_type : slots_type) {
+        m_vSlots.push_back(new Slot(index, slot_type));
         ++index;
     }
 }
 
 Device::~Device() {
-    for(auto& interface : m_vInterfaces)
-        delete interface;
+    for(auto& slot : m_vSlots)
+        delete slot;
 }
 
 //--------------------------------------------------------------------------------------------
@@ -24,4 +26,4 @@ Device::~Device() {
 //--------------------------------------------------------------------------------------------
 
 std::string Device::getHostname() { return m_sHostname; }
-std::vector<Interface*> Device::getInterfaces() { return m_vInterfaces; }
+std::vector<Slot*> Device::getSlots() { return m_vSlots; }

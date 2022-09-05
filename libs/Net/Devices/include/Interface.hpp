@@ -4,15 +4,17 @@
 
 class Interface {
 public:
-    Interface(u16 id, Utils::IFace::Types type = Utils::IFace::Types::ETHERNET);
+    Interface(u8 slotId, u8 id, Utils::IFace::Types type = Utils::IFace::Types::ETHERNET);
     ~Interface();
 
-    u16 getId();
+    u8 getSlotId();
+    u8 getId();
     Utils::IFace::Types getType();
     u32 getDelay();
     u32 getSpeed();
 private:
-    u16 m_nId;
+    u8 m_nSlotId;
+    u8 m_nId;
     Utils::IFace::Types m_enType;
     u32 m_uiDelay = 100;
     u32 m_uiSpeed = 100000;

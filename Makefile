@@ -10,13 +10,13 @@ bdLinux:
 brLinux:
 	make -C out/build/Release/Linux
 rdLinux:
-	out/build/Linux/Debug/Network_Simulationd
+	out/build/Linux/Debug/Network_Simulatord
 rdtLinux:
-	out/build/Linux/Debug/Network_Simulation
+	out/build/Linux/Debug/Network_Simulator
 runLinux:
-	out/build/Linux/Release/Network_Simulationd
+	out/build/Linux/Release/Network_Simulatord
 rrtLinux:
-	out/build/Linux/Release/Network_Simulation
+	out/build/Linux/Release/Network_Simulator
 
 # MacOS build-related commands.
 # ===================================================================

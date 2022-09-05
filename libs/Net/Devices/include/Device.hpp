@@ -1,19 +1,19 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <Interface.hpp>
+#include <Slot.hpp>
 #include <Types.hpp>
 #include "../../platform.hpp"
 
 class Device {
 public:
     LIBEXP std::string getHostname();
-    LIBEXP std::vector<Interface*> getInterfaces();
+    LIBEXP std::vector<Slot*> getSlots();
 protected:
     Device(std::string hostname);
-    Device(std::string hostname, std::vector<Utils::IFace::Types> interfaces);
+    Device(std::string hostname, std::vector<Utils::IFace::Types> slot_types);
     virtual ~Device();
 private:
     std::string m_sHostname;
-    std::vector<Interface*> m_vInterfaces;
+    std::vector<Slot*> m_vSlots;
 };

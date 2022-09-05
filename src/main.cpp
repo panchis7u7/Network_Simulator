@@ -7,6 +7,6 @@ using namespace Utils::IFace;
 int main() {
     std::cout << "Hello World!" << std::endl;
     Router rtr = Router("R1");
-    Router rtr2 = Router("R2", { GIGABIT_ETHERNET, GIGABIT_ETHERNET });
+    Router rtr2 = Router("R2", { ETHERNET, ETHERNET });
     return 0;
 }

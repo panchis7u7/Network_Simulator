@@ -4,11 +4,13 @@ add_library(Logger SHARED
 )
 
 add_library(NetDevices SHARED
+    Net/Devices/include/Interface.hpp
+    Net/Devices/src/Interface.cpp
+    Net/Devices/include/Slot.hpp
+    Net/Devices/src/Slot.cpp
     Net/Devices/include/Device.hpp
     Net/Devices/src/Device.cpp
     Net/Devices/include/Types.hpp
-    Net/Devices/include/Interface.hpp
-    Net/Devices/src/Interface.cpp
     Net/Devices/include/Router.hpp
     Net/Devices/src/Router.cpp
 )
