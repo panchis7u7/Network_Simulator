@@ -10,5 +10,9 @@ Slot::~Slot() {
         delete m_vInterfaces[i];
 }
 
+Interface* Slot::getInterfaceById(u8 id) {
+    
+}
+
 u16 Slot::getId() { return m_nId; }
 Interface** Slot::getInterfaces() { return m_vInterfaces; }

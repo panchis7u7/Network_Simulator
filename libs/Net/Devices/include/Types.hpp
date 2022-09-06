@@ -2,6 +2,17 @@
 #include <string.h>
 
 namespace Utils {
+
+    namespace Models {
+
+        typedef enum TCPIP_HEADERS {
+            ETHERNET_HEADER = 0,
+            IP_HEADER = 14,
+            TCP_HEADER = 34,
+            APP_HEADER =  54
+        } TCPIP_HEADERS;
+    }
+
     namespace IFace {
         typedef enum Types {
             SERIAL = 0,

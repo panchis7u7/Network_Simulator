@@ -4,6 +4,8 @@ Interface::Interface(u8 slotId, u8 id, Utils::IFace::Types type): m_nSlotId(slot
 
 Interface::~Interface() {}
 
+void Interface::update() {}
+
 //--------------------------------------------------------------------------------------------
 // Getters and Setters.
 //--------------------------------------------------------------------------------------------

@@ -10,6 +10,7 @@ public:
     LIBEXP Router(std::string hostname);
     LIBEXP Router(std::string hostname, std::vector<Utils::IFace::Types> slots_type);
     LIBEXP ~Router() override;
+    void connect(Device* device, std::string interface) override;
 private:
     void init();
 };
