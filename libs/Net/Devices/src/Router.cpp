@@ -34,7 +34,7 @@ void Router::connect(std::string local_interface, Device* device, std::string en
             ++i;
         }
 
-        Slot* local_requested_slot = device->getSlotbyId(local_iface_identifiers[0]);
+        Slot* local_requested_slot = getSlotbyId(local_iface_identifiers[0]);
         Interface* local_requested_iface = local_requested_slot->getInterfaceById(local_iface_identifiers[1]);
 
         Slot* end_requested_slot = device->getSlotbyId(end_iface_identifiers[0]);
@@ -51,6 +51,27 @@ void Router::connect(std::string local_interface, Device* device, std::string en
             end_iface_identifiers[0],
             end_iface_identifiers[1],
             device->getHostname().c_str());
+
+        local_requested_iface->attach(end_requested_iface);
+        end_requested_iface->attach(local_requested_iface);
+
+        LDEBUG_CODE_EXECUTION("\'%s\' interface \'Eth%i/%i\' connected to \'%s\' interface \'Eth%i/%i\'.", 
+            getHostname().c_str(), 
+            local_requested_iface->getSlotId(),
+            local_requested_iface->getId(),
+            end_requested_iface->getParent()->getHostname().c_str(),
+            end_requested_iface->getSlotId(),
+            end_requested_iface->getId()
+        );
+
+        LDEBUG_CODE_EXECUTION("\'%s\' interface \'Eth%i/%i\' connected to \'%s\' interface \'Eth%i/%i\'.", 
+            end_requested_iface->getParent()->getHostname().c_str(), 
+            end_requested_iface->getSlotId(),
+            end_requested_iface->getId(),
+            getHostname().c_str(),
+            local_requested_iface->getSlotId(),
+            local_requested_iface->getId()
+        );
     }
 
     //std::regex ethernet_regex("^E+\D*", std::regex_constants::ECMAScript | std::regex_constants::icase);

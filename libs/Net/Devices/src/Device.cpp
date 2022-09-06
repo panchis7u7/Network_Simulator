@@ -2,13 +2,13 @@
 
 Device::Device(std::string hostname): m_sHostname(hostname) {
     for(int i = 0; i < 2; ++i)
-        m_mSlots.insert({i, new Slot(i)});
+        m_mSlots.insert({i, new Slot(this, i)});
 }
 
 Device::Device(std::string hostname, std::vector<Utils::IFace::Types> slots_type): m_sHostname(hostname) {
     int index = 0;
     for(auto& slot_type : slots_type) {
-        m_mSlots.insert({index, new Slot(index, slot_type)});
+        m_mSlots.insert({index, new Slot(this, index, slot_type)});
         ++index;
     }
 }

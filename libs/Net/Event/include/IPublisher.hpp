@@ -8,10 +8,10 @@
 template <class T, int observerListSize>
 class IPublisher {
 public:
-    inline void attach(IObserver* observer);
-    inline void detach(IObserver* observer);
-    inline void notify();
-    inline T getState();
+    void attach(IObserver* observer);
+    void detach(IObserver* observer);
+    void notify();
+    T getState();
 protected:
     IPublisher();
     virtual ~IPublisher() = 0;

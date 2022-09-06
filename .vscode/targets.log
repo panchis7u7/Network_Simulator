@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Sep  5 23:02:32 2022
+# Make data base, printed on Tue Sep  6 08:55:55 2022
 
 # Variables
 
@@ -56,15 +56,15 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pDieJP6uxF/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.FXBAvrN2mS/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = /private/tmp/com.apple.launchd.X1BllQ5GpW/org.xquartz:0
+DISPLAY = /private/tmp/com.apple.launchd.RzEICGsrPH/org.xquartz:0
 # environment
 TTY = /dev/ttys001
 # environment
-FIG_PID = 25691
+FIG_PID = 2200
 # environment
 PWD = /Users/semadrig/Documents/Cisco/Network_Simulation
 # environment
@@ -110,7 +110,7 @@ USER = semadrig
 # environment
 FIG_TERM_VERSION = 4.4.1
 # environment
-TERM_SESSION_ID = 84966AC0-AA87-4C0C-B757-1B9C03D80403
+TERM_SESSION_ID = 4E2DC675-3F7B-4BAE-9FB7-A3BB55621B8A
 # environment
 LESS = -R
 # automatic
@@ -142,7 +142,7 @@ MFLAGS = -Rrqp
 # environment
 TERM_PROGRAM_VERSION = 445
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.82670872.82670878.D67C5C8B-C79F-4998-A6FA-511E2FF53BFB
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.82670872.82670878.A464A727-BC0D-4A4B-A240-85FFCB0E20B0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -176,7 +176,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 30269
+VSCODE_PID = 2407
 # variable set hash-table stats:
 # Load=83/1024=8%, Rehash=0, Collisions=3/107=3%
 
@@ -186,7 +186,7 @@ VSCODE_PID = 30269
 
 # Directories
 
-# . (device 16777223, inode 81457944): 9 files, no impossibilities.
+# . (device 16777221, inode 81457944): 9 files, no impossibilities.
 
 # 9 files, no impossibilities in 1 directories.
 
@@ -386,6 +386,6 @@ cmdMacU:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Sep  5 23:02:32 2022
+# Finished Make data base on Tue Sep  6 08:55:55 2022
 
  

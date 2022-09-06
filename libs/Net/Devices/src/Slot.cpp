@@ -1,8 +1,8 @@
 #include <Slot.hpp>
 
-Slot::Slot(u16 id, Utils::IFace::Types type) {
+Slot::Slot(Device* parent, u16 id, Utils::IFace::Types type): m_devParent(parent) {
     for(u8 i = 0; i < 4; i++)
-        m_mInterfaces.insert({i, new Interface(id, i, type)});
+        m_mInterfaces.insert({i, new Interface(parent, id, i, type)});
 }
 
 Slot::~Slot() {
