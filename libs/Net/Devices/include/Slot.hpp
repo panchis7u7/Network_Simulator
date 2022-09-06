@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 #include <Interface.hpp>
 #include <Types.hpp>
 
@@ -7,10 +8,10 @@ public:
     friend class Device;
     u16 getId();
     Interface* getInterfaceById(u8 id);
-    Interface** getInterfaces();
+    std::map<u8, Interface*> getInterfaces();
 private:
     Slot(u16 id, Utils::IFace::Types types = Utils::IFace::Types::ETHERNET);
     ~Slot();
     u16 m_nId;
-    Interface* m_vInterfaces[4];
+    std::map<u8, Interface*> m_mInterfaces;
 };

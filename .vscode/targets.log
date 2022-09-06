@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Sep  5 18:37:14 2022
+# Make data base, printed on Mon Sep  5 23:02:32 2022
 
 # Variables
 
@@ -64,7 +64,7 @@ DISPLAY = /private/tmp/com.apple.launchd.X1BllQ5GpW/org.xquartz:0
 # environment
 TTY = /dev/ttys001
 # environment
-FIG_PID = 16430
+FIG_PID = 25691
 # environment
 PWD = /Users/semadrig/Documents/Cisco/Network_Simulation
 # environment
@@ -110,7 +110,7 @@ USER = semadrig
 # environment
 FIG_TERM_VERSION = 4.4.1
 # environment
-TERM_SESSION_ID = FD6620C9-9854-4508-AFD0-00A3A7412BFE
+TERM_SESSION_ID = 84966AC0-AA87-4C0C-B757-1B9C03D80403
 # environment
 LESS = -R
 # automatic
@@ -142,7 +142,7 @@ MFLAGS = -Rrqp
 # environment
 TERM_PROGRAM_VERSION = 445
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.82670872.82670878.1B745336-A3FF-4ED4-B557-052B79BEF331
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.82670872.82670878.D67C5C8B-C79F-4998-A6FA-511E2FF53BFB
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -176,7 +176,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 16649
+VSCODE_PID = 30269
 # variable set hash-table stats:
 # Load=83/1024=8%, Rehash=0, Collisions=3/107=3%
 
@@ -386,6 +386,6 @@ cmdMacU:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Sep  5 18:37:14 2022
+# Finished Make data base on Mon Sep  5 23:02:32 2022
 
  

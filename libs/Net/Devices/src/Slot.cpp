@@ -2,17 +2,15 @@
 
 Slot::Slot(u16 id, Utils::IFace::Types type) {
     for(u8 i = 0; i < 4; i++)
-        m_vInterfaces[i] = new Interface(id, i, type);
+        m_mInterfaces.insert({i, new Interface(id, i, type)});
 }
 
 Slot::~Slot() {
-    for(u8 i = 0; i < 4; i++)
-        delete m_vInterfaces[i];
+    for(std::map<u8, Interface*>::iterator it = m_mInterfaces.begin(); it != m_mInterfaces.end(); ++it)
+        m_mInterfaces.erase(it);
 }
 
-Interface* Slot::getInterfaceById(u8 id) {
-    
-}
+Interface* Slot::getInterfaceById(u8 id) { return m_mInterfaces[id]; }
 
 u16 Slot::getId() { return m_nId; }
-Interface** Slot::getInterfaces() { return m_vInterfaces; }
+std::map<u8, Interface*> Slot::getInterfaces() { return m_mInterfaces; }

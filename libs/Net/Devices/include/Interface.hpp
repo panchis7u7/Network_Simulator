@@ -4,7 +4,7 @@
 #include <IObserver.hpp>
 #include <IPublisher.hpp>
 
-class Interface: IObserver, IPublisher<Ethernet802d3, 1> {
+class Interface: IObserver, public IPublisher<Ethernet802d3, 1> {
 public:
     Interface(u8 slotId, u8 id, Utils::IFace::Types type = Utils::IFace::Types::ETHERNET);
     ~Interface();

@@ -1,33 +1,30 @@
 #include <Device.hpp>
 
 Device::Device(std::string hostname): m_sHostname(hostname) {
-    m_vSlots.reserve(2);
     for(int i = 0; i < 2; ++i)
-        m_vSlots.push_back(new Slot(i));
+        m_mSlots.insert({i, new Slot(i)});
 }
 
 Device::Device(std::string hostname, std::vector<Utils::IFace::Types> slots_type): m_sHostname(hostname) {
-    m_vSlots.reserve(slots_type.size());
-
     int index = 0;
     for(auto& slot_type : slots_type) {
-        m_vSlots.push_back(new Slot(index, slot_type));
+        m_mSlots.insert({index, new Slot(index, slot_type)});
         ++index;
     }
 }
 
 Device::~Device() {
-    for(auto& slot : m_vSlots)
-        delete slot;
+    LDEBUG_CODE_EXECUTION("Destructor called on \'%s\'", getHostname().c_str());
+    //for(std::map<u8, Slot*>::iterator it = m_mSlots.begin(); it != m_mSlots.end(); ++it)
+    //    m_mSlots.erase(it);
+    LDEBUG_CODE_EXECUTION("Destructor ended on \'%s\'", getHostname().c_str());
 }
 
-Slot* Device::getSlotbyId(std::string id) {
-    
-}
+Slot* Device::getSlotbyId(u8 id) { return m_mSlots[id]; }
 
 //--------------------------------------------------------------------------------------------
 // Getters and Setters.
 //--------------------------------------------------------------------------------------------
 
 std::string Device::getHostname() { return m_sHostname; }
-std::vector<Slot*> Device::getSlots() { return m_vSlots; }
+std::map<u8, Slot*> Device::getSlots() { return m_mSlots; }

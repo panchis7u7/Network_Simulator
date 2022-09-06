@@ -7,13 +7,14 @@
 
 template <class T, int observerListSize>
 class IPublisher {
-protected:
-    IPublisher();
-    virtual ~IPublisher() = 0;
+public:
     inline void attach(IObserver* observer);
     inline void detach(IObserver* observer);
     inline void notify();
     inline T getState();
+protected:
+    IPublisher();
+    virtual ~IPublisher() = 0;
 private:
     std::vector<IObserver*> m_vObservers;
     T m_tState;
