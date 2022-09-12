@@ -20,7 +20,11 @@ Device::~Device() {
     LDEBUG_CODE_EXECUTION("Destructor ended on \'%s\'", getHostname().c_str());
 }
 
-Slot* Device::getSlotbyId(u8 id) { return m_mSlots[id]; }
+Slot* Device::getSlotbyId(u8 id) {
+    if(m_mSlots.contains(id))
+        return m_mSlots.find(id)->second;
+    return nullptr;
+}
 
 //--------------------------------------------------------------------------------------------
 // Getters and Setters.

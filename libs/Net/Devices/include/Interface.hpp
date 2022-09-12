@@ -6,7 +6,7 @@
 
 class Device;
 
-class Interface: public IObserver, public IPublisher<Ethernet802d3, 1> {
+class Interface: public IObserver, public IPublisher<Ethernet802d3<1500>, 1> {
 public:
     Interface(Device* parent, u8 slotId, u8 id, Utils::IFace::Types type = Utils::IFace::Types::ETHERNET);
     ~Interface();
@@ -17,6 +17,7 @@ public:
     Utils::IFace::Types getType();
     u32 getDelay();
     u32 getSpeed();
+    u32 getMtu();
     void update() override;
 private:
     Device* m_devParent;
@@ -24,5 +25,6 @@ private:
     u8 m_nId;
     Utils::IFace::Types m_enType;
     u32 m_uiDelay = 100;
-    u32 m_uiSpeed = 100000;
+    u32 m_uiSpeed = 10000;
+    u32 m_uMtu = 1500;
 };

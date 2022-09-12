@@ -24,4 +24,4 @@ void IPublisher<T, observerListSize>::notify() {
 template <class T, int observerListSize>
 T IPublisher<T, observerListSize>::getState() { return m_tState; }
 
-template class IPublisher<Ethernet802d3, 1>;
+template class IPublisher<Ethernet802d3<1500>, 1>;

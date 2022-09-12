@@ -16,3 +16,4 @@ u8 Interface::getId() { return m_nId; }
 Utils::IFace::Types Interface::getType() { return m_enType; }
 u32 Interface::getDelay() { return m_uiDelay; }
 u32 Interface::getSpeed() { return m_uiSpeed; }
+u32 Interface::getMtu() { return m_uMtu; }

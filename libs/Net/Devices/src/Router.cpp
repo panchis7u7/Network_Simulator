@@ -34,11 +34,20 @@ void Router::connect(std::string local_interface, Device* device, std::string en
             ++i;
         }
 
-        Slot* local_requested_slot = getSlotbyId(local_iface_identifiers[0]);
-        Interface* local_requested_iface = local_requested_slot->getInterfaceById(local_iface_identifiers[1]);
+        Slot* local_requested_slot, *end_requested_slot;
+        Interface* local_requested_iface, *end_requested_iface;
 
-        Slot* end_requested_slot = device->getSlotbyId(end_iface_identifiers[0]);
-        Interface* end_requested_iface = end_requested_slot->getInterfaceById(end_iface_identifiers[1]);
+        if(!(local_requested_slot = getSlotbyId(local_iface_identifiers[0])))
+            return LDEBUG_CODE_EXECUTION("Interface \'%i/%i\' does not exist on \'%s\'!", local_iface_identifiers[0], local_iface_identifiers[1], getHostname().c_str());
+        
+        if(!(local_requested_iface = local_requested_slot->getInterfaceById(local_iface_identifiers[1])))
+            return LDEBUG_CODE_EXECUTION("Interface \'%i/%i\' does not exist on \'%s\'!", local_iface_identifiers[0], local_iface_identifiers[1], getHostname().c_str());
+
+        if(!(end_requested_slot = device->getSlotbyId(end_iface_identifiers[0])))
+            return LDEBUG_CODE_EXECUTION("Interface \'%i/%i\' does not exist on \'%s\'!", end_iface_identifiers[0], end_iface_identifiers[1], getHostname().c_str());
+
+        if(!(end_requested_iface = end_requested_slot->getInterfaceById(end_iface_identifiers[1])))
+            return LDEBUG_CODE_EXECUTION("Interface \'%i/%i\' does not exist on \'%s\'!",  end_iface_identifiers[0], end_iface_identifiers[1], getHostname().c_str());
 
         LDEBUG_CODE_EXECUTION("Selected the interface \'%s%i/%i\' from router \'%s\'.", 
             Utils::IFace::StringTypes[local_requested_iface->getType()], 
@@ -73,7 +82,6 @@ void Router::connect(std::string local_interface, Device* device, std::string en
             local_requested_iface->getId()
         );
     }
-
     //std::regex ethernet_regex("^E+\D*", std::regex_constants::ECMAScript | std::regex_constants::icase);
 }
 

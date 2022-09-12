@@ -10,7 +10,11 @@ Slot::~Slot() {
         m_mInterfaces.erase(it);
 }
 
-Interface* Slot::getInterfaceById(u8 id) { return m_mInterfaces[id]; }
+Interface* Slot::getInterfaceById(u8 id) {
+    if(m_mInterfaces.contains(id))
+        return m_mInterfaces.find(id)->second;
+    return nullptr;
+}
 
 u16 Slot::getId() { return m_nId; }
 std::map<u8, Interface*> Slot::getInterfaces() { return m_mInterfaces; }
